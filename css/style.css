@@ -69,10 +69,6 @@ body {
   line-height: 1;
   font-weight: 500;
 }
-.heading--secondary {
-}
-.paragraph {
-}
 
 .details--name {
   font-size: 2.5rem;
@@ -109,10 +105,12 @@ main {
 
 .content__box {
   flex: 1;
-  padding: 1rem;
   overflow: hidden;
   overflow-y: scroll;
   height: 40rem;
+}
+.content__box--1 {
+  border: 0.4rem solid var(--blue-400);
 }
 
 .content__box--2 {
@@ -147,7 +145,7 @@ main {
   border-radius: 4px;
   background: var(--grey-900);
   height: 6rem;
-  transition: transform 0.3s ease-out;
+  transition: all 0.2s;
 }
 
 .content__note:hover {
@@ -156,19 +154,11 @@ main {
 }
 .content__note.active {
   background: var(--blue-500);
-  transform: scale(1.01);
+  transform: scale(1.025);
 }
 
 .content__note:active {
   cursor: default;
-}
-
-.content__note:not(:last-child) {
-  margin-bottom: 1rem;
-}
-
-.content__note.wrong {
-  background: var(--red-400);
 }
 
 .content__header,
