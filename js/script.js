@@ -189,9 +189,9 @@ contentBoxFirst.addEventListener('click', function (e) {
     document.querySelector('.content__body').innerHTML += `
     <div class="content__card">
       <p class="details" id="user--movement">${selectedAcc.d0[i]}</p>
-      <p class="details" id="user--days-passed">${daysPassed(
-        selectedAcc.d1[i]
-      )} giorni fa.</p>
+      <p class="details" id="user--days-passed">${
+        daysPassed(selectedAcc.d1[i]) || 0
+      } giorni fa.</p>
     </div>
     `
   }
