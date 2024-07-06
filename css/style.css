@@ -34,6 +34,17 @@ button,
   width: 2.4rem;
   height: 2.4rem;
 }
+.icon--spinner {
+  animation: spinner 1s linear infinite;
+}
+.icon--48 {
+  width: 4.8rem;
+  height: 4.8rem;
+}
+
+.icon.light {
+  fill: var(--light-200);
+}
 
 .link:link,
 .link:visited {
@@ -106,6 +117,7 @@ main {
 
 .content__box--2 {
   padding: 0;
+  position: relative;
   color: var(--dark);
   background: var(--light-200);
 
@@ -214,4 +226,22 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
+  background: blue;
+}
+
+.overlay.loading {
+  position: absolute;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
 }

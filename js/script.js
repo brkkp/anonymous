@@ -13,11 +13,14 @@ const userMovement = document.getElementById('user--movement')
 const userDate = document.getElementById('user--date')
 const userDaysPassed = document.getElementById('user--days-passed')
 //
+let dateNew = new Date('2024')
 const overlay = document.createElement('div')
-overlay.classList.add('overlay')
+overlay.classList.add('overlay', 'loading')
+overlay.innerHTML = `<svg class="icon icon--spinner light icon--48">
+<use xlink:href="./assets/sprite.svg#icon-spinner"></use></svg>`
 const dayTxt = document.createElement('p')
 dayTxt.classList.add('day')
-dayTxt.innerHTML = `${daysPassed(new Date('2024'))}`
+dayTxt.innerHTML = `${daysPassed(dateNew)}`
 body.prepend(dayTxt)
 contentButtonClose.remove()
 
@@ -41,7 +44,7 @@ const optionClock = {
 }
 
 setInterval(() => {
-  const dateNew = new Date()
+  dateNew = new Date()
   const dateFormat = new Intl.DateTimeFormat('it', optionClock).format(dateNew)
   date.innerHTML = dateFormat
 }, 1000)
@@ -98,13 +101,22 @@ for (const [i, el] of accounts.entries()) {
   </div>`
 }
 
+let casualSiz = [500, 800, 900, 1050, 500]
 contentBoxFirst.addEventListener('click', function (e) {
+  let num = Math.trunc(Math.random() * casualSiz.length)
   const id = e.target.closest('.content__note')
   if (!id) return
   const selectedAcc = accounts[id.getAttribute('data-ver')]
 
   //
   contentBoxSecond.classList.add('active')
+  contentBoxSecond.prepend(overlay)
+  setTimeout(() => {
+    overlay.remove()
+    contentButtonClose.classList.remove('d-none')
+    contentEl.prepend(contentButtonClose)
+  }, casualSiz[num])
+  //
   userName.innerHTML = `${selectedAcc.nick}`
   userCode.innerHTML = `${selectedAcc.code}`
 
@@ -127,20 +139,15 @@ contentBoxFirst.addEventListener('click', function (e) {
   id.classList.add('active')
 
   //
-  if (contentBoxSecond.classList.contains('active')) {
-    contentEl.prepend(contentButtonClose)
-    body.prepend(overlay)
-    contentButtonClose.classList.remove('d-none')
-  }
+  // if (contentBoxSecond.classList.contains('active')) {
+  //   contentEl.prepend(contentButtonClose)
+  // }
 })
 
 contentButtonClose.addEventListener('click', reset)
-overlay.addEventListener('click', reset)
-
 ////
 function reset() {
   contentButtonClose.remove()
-  overlay.remove()
   contentBoxSecond.classList.remove('active')
   document
     .querySelectorAll('.content__note')
