@@ -49,10 +49,6 @@ body {
   color: var(--light-400);
 }
 
-main {
-  padding: 2rem;
-}
-
 .day {
   font-size: 2rem;
   position: absolute;
@@ -85,6 +81,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
 }
 
 /* Components */
@@ -101,9 +98,10 @@ main {
 
 .content__box {
   flex: 1;
-  height: 40rem;
-  padding: 2rem;
+  padding: 1rem;
+  overflow: hidden;
   overflow-y: scroll;
+  height: 40rem;
 }
 
 .content__box--2 {
@@ -166,12 +164,17 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
+  padding: 3.2rem;
   font-size: 1.5rem;
   border-bottom: 2px solid red;
 }
 
+.content__body {
+  padding: 0 2rem;
+}
+
 .content__card {
+  padding: 2.65rem;
   border-bottom: 1px solid red;
 }
 
