@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>document &mdash 0</title>
+    <link rel="stylesheet" type="text/css" href="./css/variables.css" />
+    <link rel="stylesheet" type="text/css" href="./css/utilities.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+  </head>
+
+  <body>
+    <main>
+      <div class="content">
+        <p class="details" id="date" title="Data e ora">&nbsp;</p>
+        <button type="button" class="content__button-close">
+          <svg class="icon">
+            <use xlink:href="./assets/sprite.svg#icon-cross"></use>
+          </svg>
+        </button>
+        <!--  -->
+        <div class="content__box content__box--1"></div>
+        <div class="content__box content__box--2">
+          <header class="content__header">
+            <h2 class="heading heading--secondary" id="user--username"></h2>
+            <p class="details" id="user--code"></p>
+          </header>
+
+          <div class="content__body">
+            <div class="content__card">
+              <p class="details" id="user--movement"></p>
+              <p class="details" id="user--days-passed">11</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script defer src="./js/script.js"></script>
+  </body>
+</html>
