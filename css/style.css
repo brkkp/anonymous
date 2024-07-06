@@ -55,6 +55,7 @@ main {
 
 .day {
   font-size: 2rem;
+  postion: absolute;
 }
 
 .heading {
