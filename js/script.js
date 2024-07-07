@@ -144,11 +144,11 @@ const accounts = [
 
 let day = new Date('2024')
 const overlay = document.createElement('div')
+const dayTxt = document.createElement('p')
 overlay.classList.add('overlay', 'loading')
+dayTxt.classList.add('day')
 overlay.innerHTML = `<svg class="icon icon--spinner light icon--48">
 <use xlink:href="./assets/sprite.svg#icon-spinner"></use></svg>`
-const dayTxt = document.createElement('p')
-dayTxt.classList.add('day')
 dayTxt.innerHTML = `${daysPassed(day)}`
 body.prepend(dayTxt)
 contentButtonClose.remove()
@@ -162,7 +162,7 @@ setInterval(() => {
 //
 for (const [i, el] of accounts.entries()) {
   contentBoxFirst.innerHTML += `
-  <div role="button" class="content__note content__note--${i}" data-ver="${i}">
+  <div role="button" class="content__note content__note--${i + 1}" data-ver="${i}">
   <p class="details details--name">${el.n}</p>
   <p class="details details--name">${el.en}</p>
   </div>`
@@ -170,11 +170,10 @@ for (const [i, el] of accounts.entries()) {
 
 //
 contentBoxFirst.addEventListener('click', function (e) {
-  e.preventDefault()
   const id = e.target.closest('.content__note')
   if (!id) return
-  const selectedAcc = accounts[id.getAttribute('data-ver')]
   //
+  const selectedAcc = accounts[id.getAttribute('data-ver')]
   contentBoxSecond.classList.add('active')
   contentBoxSecond.prepend(overlay)
   contentButtonClose.classList.remove('d-none')
@@ -183,7 +182,7 @@ contentBoxFirst.addEventListener('click', function (e) {
   //
   userName.innerHTML = `${selectedAcc.n}`
   userCode.innerHTML = `${selectedAcc.en}`
-
+  //
   document.querySelector('.content__body').innerHTML = ''
   for (const [i] of selectedAcc.d0.entries()) {
     document.querySelector('.content__body').innerHTML += `
